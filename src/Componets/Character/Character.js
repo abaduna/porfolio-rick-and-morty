@@ -4,9 +4,12 @@ import Card from 'react-bootstrap/Card';
 import {Row, Col } from 'react-bootstrap';
 
 
+
 function CharacterComponent({character}) {
 
   return (
+    <>
+    
     <Col md={6} sm={12}>
         <Card style={{ width: '18rem' }}>
             
@@ -20,7 +23,9 @@ function CharacterComponent({character}) {
           </Card.Body>
         </Card>
 
-    </Col> )
+    </Col>     
+    </>
+)
 }
 
 // Characters.PropTypes = {

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import CharacterComponent from '../Componets/Character/Character';
 import { Row, Col } from 'react-bootstrap';
 
-
+import NavBar from '../Componets/NavBar/NavBar';
 
 
 function Characters() {
@@ -16,20 +16,20 @@ function Characters() {
   const miDivRef = useRef(null);
   const { results, info } = data;
   // setresultslist((privList)=>privList,results)
- 
+
 
   useEffect(() => {
     if (results && results.length > 0) {
       setresultslist((prevList) => [...prevList, ...results]);
     }
-  }, [results]);
+  }, [page]);
   useEffect(() => {
     const handleScroll = () => {
       if (
         miDivRef.current &&
         window.innerHeight + window.scrollY >= miDivRef.current.offsetTop
       ) {
-        // Reached the bottom of the page, load more data
+       
         setPage((prevPage) => prevPage + 1);
       }
     };
@@ -41,7 +41,7 @@ function Characters() {
     };
   }, []);
   useEffect(() => {
-    // Update endpoint when page changes
+    
     const temporizador=setTimeout(() => {
       setEndpoint(`character/?page=${page}`);
     }, 1500);
@@ -49,8 +49,9 @@ function Characters() {
   }, [page]);
   return (
     <>
+      <NavBar></NavBar>
       <Row>
-        <h1>Rick & Morty</h1>
+        
         {loading && <p>Loading...</p>}
         {error && <p>Something went wrong</p>}
         {resultslist &&
