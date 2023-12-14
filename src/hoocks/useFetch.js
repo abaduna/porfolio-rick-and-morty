@@ -7,10 +7,10 @@ export const useFetch =(endopoint)=>{
     const[loading,setLoading]=useState(false)
     const [data,setData] = useState({})
     const [error,setError] = useState(false)
+    
 
 
-
-    const getData =useCallback(async()=>{
+    const getData =async()=>{
         try {
             const {data} = await API.get(`${endopoint}`)
             setData(data)
@@ -18,7 +18,7 @@ export const useFetch =(endopoint)=>{
             console.error(error);
             setError(true)
         }
-    },[])
+    }
 
 
 

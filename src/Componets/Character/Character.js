@@ -4,21 +4,23 @@ import Card from 'react-bootstrap/Card';
 import {Row, Col } from 'react-bootstrap';
 
 
-function CharacterComponent({}) {
+function CharacterComponent({character}) {
+
   return (
-    
+    <Col md={6} sm={12}>
         <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
+            
+          <Card.Img variant="top" src={character.image} />
           <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title>{character.name}</Card.Title>
             <Card.Text>
-              Some quick example text to build on the card title and make up the bulk of the card's content.
+              es el tipo <b>{character.type}</b>
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Button variant="primary">Agregar a favoritos</Button>
           </Card.Body>
         </Card>
 
-  )
+    </Col> )
 }
 
 // Characters.PropTypes = {
