@@ -9,10 +9,10 @@ function LocationsC({locatin}) {
 <div>
     <Card style={{ width: '100%' }} className='grid-item'>
          <Card.Body>
-          <Card.Title>{locatin.name}</Card.Title>
+          <Card.Title>{ locatin?.name}</Card.Title>
           <Card.Text>
-              Dimension:{locatin.dimension} whit name {locatin.name}<br/>
-              <b>Created the {locatin.created}</b>
+              Dimension:{locatin?.dimension} whit name {locatin?.name}<br/>
+              <b>Created the {locatin?.created}</b>
          </Card.Text>
       
         </Card.Body>

@@ -1,6 +1,8 @@
-import {useCallback, useEffect,useState} from "react"
+import {useCallback, useEffect,useReducer,useState} from "react"
 
 import {API} from "../API"
+import { fetchReducer, initialState } from "../reducers/fetch"
+import { FETCH_DATA } from "../action/fetch"
 
 
 export const useFetch =(endopoint)=>{
@@ -8,15 +10,16 @@ export const useFetch =(endopoint)=>{
     const [data,setData] = useState({})
     const [error,setError] = useState(false)
     
-
+    const [state,dispatch]= useReducer(fetchReducer,initialState)
 
     const getData =async()=>{
         try {
             const {data} = await API.get(`${endopoint}`)
-            setData(data)
+            dispatch({type:FETCH_DATA.SET_DATA,payload:data})
         } catch (error) {
             console.error(error);
-            setError(true)
+            dispatch({type:FETCH_DATA.SET_ERROR})
+            
         }
     }
 
@@ -26,6 +29,6 @@ export const useFetch =(endopoint)=>{
         getData()
     },[endopoint,getData])
 
-    return [data,loading,error]
+    return state
 }
 

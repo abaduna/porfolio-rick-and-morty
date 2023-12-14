@@ -12,11 +12,12 @@ function Characters() {
   const [page, setPage] = useState(1);
   const [resultslist,setresultslist]= useState([])
   const [endpoint, setEndpoint] = useState(`character/?page=${page}`);
-  const [data, loading, error] = useFetch(endpoint);
+  const  {data, loading, error} = useFetch(endpoint);
   const miDivRef = useRef(null);
   const { results, info } = data;
   // setresultslist((privList)=>privList,results)
-
+  if (loading) <h1>...Loading</h1>
+  if (error) <h1>...Error...</h1>
 
   useEffect(() => {
     if (results && results.length > 0) {
