@@ -3,7 +3,19 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {Col } from "react-bootstrap"
-function Charact({result}) {
+import {listFavContex} from "../contex/favList"
+
+
+import { useContext } from "react";
+function CharactComponent  ({result}) {
+
+  const { addToFavorites } = useContext(listFavContex);
+
+
+
+  const handleAddToFavorites = (result) => {
+    addToFavorites(result);
+  };
   return (
     <>
   <Col md={6} lg={6} sm={12} >
@@ -14,7 +26,7 @@ function Charact({result}) {
         <Card.Text>
         {result.dimension}
         </Card.Text>
-        <Button variant="primary">Agregar en english</Button>
+        <Button variant="primary" onClick={() => handleAddToFavorites(result)} >Add</Button>
       </Card.Body>
     </Card>    
   </Col>
@@ -23,4 +35,4 @@ function Charact({result}) {
   )
 }
 
-export default Charact
+export default CharactComponent

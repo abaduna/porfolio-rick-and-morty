@@ -1,12 +1,11 @@
 import { useState,useEffect } from 'react';
-
 import InfiniteScroll from 'react-infinite-scroll-component';
-import {Col, Row,Container } from "react-bootstrap"
+import { Row,Container } from "react-bootstrap"
 import {useFecth} from "../../hoocks/useFecth"
-import Location from '../../components/location';
+import {listFavContex} from "../../contex/favList"
 import NavBar from '../../components/NavBar';
-import Pagination from '../../components/Pagination';
-import Charact from '../../components/Charact';
+
+import CharactComponent  from '../../components/Charact';
 function Characters() {
   const [page, setPage] = useState(1);
   const [endpoint, setEndpoint] = useState(`character/?page=${page}`);
@@ -16,7 +15,7 @@ function Characters() {
   console.log(results);
   console.log(setResultList);
 
-
+  
   useEffect(() => {
     // Concatenar los resultados actuales con los anteriores
     setResultList((prev) => [...prev, ...(results || [])]);
@@ -47,7 +46,7 @@ if (loading) <h1>Loading...</h1>
       <Row>
         
             {resultList && resultList.map((result) => (
-             <Charact key={result.id} id={result.id} result={result}></Charact>
+             <CharactComponent  key={result.id} id={result.id} result={result}></CharactComponent >
              ))}
 
         </Row>
