@@ -12,11 +12,13 @@ function Locations() {
     const { data, loading, error } = useFecth(endpoint);
     const { results, info } = data;
     console.log(info);
+
+
     useEffect(() => {
       setEndpoint(`location/?page=${page}`) 
   }, [page])
 
-  if (loading) <h1>Cargando...</h1>
+  if (loading) <h1>Loading...</h1>
   if (error) <h1>error...</h1>
   return (
     <>
