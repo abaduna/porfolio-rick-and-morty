@@ -1,22 +1,27 @@
-import React from 'react'
+import React from 'react';
+import Pagination from 'react-bootstrap/Pagination';
 
+const CustomPagination = ({ info, setPage, page }) => {
+    const pages = info && info.pages ? info.pages : 1;
 
-const Pagination = ({ info, setPage, page }) => {
-    
-let active = page;
-let items = [];
-console.log(info);
-for (let number = 1; number <= 5; number++) {
-  items.push(
-    <Pagination.Item key={number} active={number === active}>
-      {number}
-    </Pagination.Item>,
-  );
-}
+  const handlePageChange = (pageNumber) => {
+    setPage(pageNumber);
+  };
 
-  return (
-    <Pagination size="lg">{items}</Pagination>
-  )
-}
+  const paginationItems = [];
+  for (let number = 1; number <= pages; number++) {
+    paginationItems.push(
+      <Pagination.Item
+        key={number}
+        active={number === page}
+        onClick={() => handlePageChange(number)}
+      >
+        {number}
+      </Pagination.Item>
+    );
+  }
 
-export default Pagination
+  return <Pagination size="lg">{paginationItems}</Pagination>;
+};
+
+export default CustomPagination;

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useState,useEffect } from 'react';
 import {useFecth} from "../../hoocks/useFecth"
-import Locatio from '../../components/Locatio';
+import Location from '../../components/location';
 import NavBar from '../../components/NavBar';
 import Pagination from '../../components/Pagination';
 function Locations() {
@@ -11,18 +11,20 @@ function Locations() {
     const [endpoint, setEndpoint] = useState(`location/?page=${page}`);
     const { data, loading, error } = useFecth(endpoint);
     const { results, info } = data;
-    console.log(results);
+    console.log(info);
     useEffect(() => {
       setEndpoint(`location/?page=${page}`) 
   }, [page])
+
   if (loading) <h1>Cargando...</h1>
   if (error) <h1>error...</h1>
   return (
     <>
     <NavBar></NavBar>
+    <h1>Location</h1>
     {results &&
-        results.map((location) => (
-          <Locatio key={location.id} result={data}></Locatio>
+        results.map((result) => (
+          <Location key={result.id}  result={result}></Location>
         ))}
         <Pagination  info={info} setPage={setPage} page={page} ></Pagination>
     </>

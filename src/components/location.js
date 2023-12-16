@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 
-function Locatio({result}) {
+function Location({result}) {
     
   return (
     <Card>
@@ -12,4 +12,4 @@ function Locatio({result}) {
   )
 }
 
-export default Locatio
+export default Location
