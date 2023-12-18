@@ -1,12 +1,12 @@
 import RoutesPrincial from "./../src/routes/RouterPrincipal";
 import './App.css';
-import {listFavProvider} from "../src/contex/favList"
+import {ListFavProvider} from "../src/contex/favList"
 function App() {
   return (
     <div className="App">
-      <listFavProvider>
+      <ListFavProvider>
         <RoutesPrincial/>        
-      </listFavProvider>
+      </ListFavProvider>
 
     </div>
   );

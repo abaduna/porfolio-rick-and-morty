@@ -13,7 +13,7 @@ function Characters() {
   const [resultList, setResultList] = useState([]);
   const { results, info } = data;
   console.log(results);
-  console.log(setResultList);
+  console.log(resultList);
 
   
   useEffect(() => {
@@ -35,7 +35,7 @@ if (loading) <h1>Loading...</h1>
   return (
     <>
       <NavBar></NavBar>
-      <h1>Charact</h1>
+      <h1 className='title-center'>Charact</h1>
     <Container>
     <InfiniteScroll
           dataLength={resultList ? resultList.length : 0}

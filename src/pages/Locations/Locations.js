@@ -23,7 +23,7 @@ function Locations() {
   return (
     <>
     <NavBar></NavBar>
-    <h1>Location</h1>
+    <h1  className='title-center'>Location</h1>
     {results &&
         results.map((result) => (
           <Location key={result.id}  result={result}></Location>

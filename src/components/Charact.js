@@ -14,11 +14,11 @@ function CharactComponent  ({result}) {
 
 
   const handleAddToFavorites = (result) => {
-    addToFavorites(result);
+    addToFavorites(result );
   };
   return (
     <>
-  <Col md={6} lg={6} sm={12} >
+  <Col md={4} lg={4} sm={12} >
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={result.image} />
       <Card.Body>

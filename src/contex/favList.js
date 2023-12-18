@@ -9,12 +9,16 @@ export const ListFavProvider =({children})=>{
     const addToFavorites  = (personaje) => {
         console.log(personaje);
         console.log(listFav);
+        if (listFav.includes(personaje)) {
+          return
+        }
         const listaCarito = [...listFav,personaje]
         SetListFav(listaCarito);
         console.log(listFav);
       }
+      
       return (
-        <Provider value={{ useAddrListFav,listFav  }}>
+        <Provider value={{ addToFavorites,listFav  }}>
              {children}
         </Provider>
        
