@@ -21,16 +21,7 @@ export const useFecth =(endopoint)=>{
           dispatch({ type: FETCH_DATA.SET_ERROR });
         }
       }, [endopoint]);
-    // const getData =async()=>{
-    //     try {
-    //         const {data} = await API.get(`${endopoint}`)
-    //         dispatch({type:FETCH_DATA.SET_DATA,payload:data})
-    //     } catch (error) {
-    //         console.error(error);
-    //         dispatch({type:FETCH_DATA.SET_ERROR})
-            
-    //     }
-    // }
+  
 
 
 
