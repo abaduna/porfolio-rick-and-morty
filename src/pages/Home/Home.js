@@ -6,7 +6,7 @@ import {Link} from "react-router-dom"
 function Home() {
   return (
     < >
-        <Container>
+        <Container>ajajaa
             <h1 className='title-center pt-5'>Welocomen to the Website from Abaduna</h1>
             <Row className='pt-5'>
                 <Col xl={6} lg={6} sm={12} className=' contenedor-centrado col' >
