@@ -26,7 +26,7 @@ export const fetchReducer = (state,action)=>{
                 error:true,
                 
             }
-            break;
+           
        
     default:
         return state

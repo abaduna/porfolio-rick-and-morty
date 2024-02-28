@@ -6,9 +6,7 @@ import { FETCH_DATA } from "../actions/fetch"
 
 
 export const useFecth =(endopoint)=>{
-    const[loading,setLoading]=useState(false)
-    const [data,setData] = useState({})
-    const [error,setError] = useState(false)
+    
     
     const [state,dispatch]= useReducer(fetchReducer,initialState)
 
